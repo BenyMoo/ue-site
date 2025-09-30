@@ -6,7 +6,7 @@
           <el-col :span="6">
             <div class="logo">易 悦</div>
           </el-col>
-          <el-col :span="18">
+          <el-col :span="18" class="hidden-sm-and-down">
             <el-menu mode="horizontal" :ellipsis="false" @select="handleMenuSelect">
               <el-menu-item index="1">产品服务</el-menu-item>
               <el-menu-item index="2">解决方案</el-menu-item>
@@ -14,6 +14,13 @@
               <el-menu-item index="4">关于我们</el-menu-item>
               <el-menu-item index="5">联系我们</el-menu-item>
             </el-menu>
+          </el-col>
+          <el-col :span="18" class="hidden-md-and-up">
+            <div class="mobile-menu">
+              <el-button type="text" @click="drawerVisible = true">
+                <el-icon :size="24"><Menu /></el-icon>
+              </el-button>
+            </div>
           </el-col>
         </el-row>
       </el-header>
@@ -305,12 +312,23 @@
         </div>
       </el-footer>
     </el-container>
+    <el-drawer v-model="drawerVisible" title="导航" direction="rtl" size="50%">
+      <el-menu vertical @select="handleMenuSelect">
+        <el-menu-item index="1">产品服务</el-menu-item>
+        <el-menu-item index="2">解决方案</el-menu-item>
+        <el-menu-item index="3">支持服务</el-menu-item>
+        <el-menu-item index="4">关于我们</el-menu-item>
+        <el-menu-item index="5">联系我们</el-menu-item>
+      </el-menu>
+    </el-drawer>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { Menu } from '@element-plus/icons-vue'
 
+const drawerVisible = ref(false)
 const services = ref<HTMLElement | null>(null)
 const solutions = ref<HTMLElement | null>(null)
 const aboutUs = ref<HTMLElement | null>(null)
@@ -319,6 +337,7 @@ const news = ref<HTMLElement | null>(null)
 const successCases = ref<HTMLElement | null>(null)
 
 const handleMenuSelect = (index: string) => {
+  drawerVisible.value = false
   let element: HTMLElement | null = null
   switch (index) {
     case '1':
@@ -498,57 +517,21 @@ const handleMenuSelect = (index: string) => {
 .news .el-card:hover {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
-.news h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-.news p {
-  color: #606266;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-.news h4 {
-  color: #909399;
-  margin-bottom: 10px;
-}
 .contact-us {
   padding: 80px 0;
-  background-color: #f7f7f7;
+  text-align: center;
 }
 .contact-us h2 {
   font-size: 30px;
   margin-bottom: 20px;
-  text-align: center;
-}
-.contact-us > p {
-  text-align: center;
-  margin-bottom: 40px;
 }
 .contact-info {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  height: 68%;
-}
-.contact-info p {
   text-align: left;
-  margin-bottom: 20px;
-}
-.el-footer {
-  background-color: #2c3e50;
-  color: white;
-  padding: 40px 0;
+  line-height: 2;
 }
 .footer-content {
-  max-width: 100;
-  background-color: #333;
-  height: auto;
-  margin: 0 auto;
-}
-.footer-content h3 {
-  font-size: 18px;
-  margin-bottom: 20px;
+  padding: 40px 0;
+  text-align: center;
 }
 .footer-content ul {
   list-style-type: none;
@@ -558,40 +541,56 @@ const handleMenuSelect = (index: string) => {
   margin-bottom: 10px;
 }
 .copyright {
-  text-align: center;
-  border-top: 1px solid #555;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #909399;
 }
-
+.hidden-md-and-up {
+  display: none;
+}
+.mobile-menu {
+  display: flex;
+  justify-content: flex-end;
+}
 @media (max-width: 768px) {
-  .el-header .el-col {
-    width: 100%;
-    text-align: center;
-  }
-  .el-menu {
-    justify-content: center;
-  }
-  .banner-img {
+  .hidden-sm-and-down {
     display: none;
   }
-  .about-img {
-    display: none;
+  .hidden-md-and-up {
+    display: block;
   }
+  .banner {
+    padding: 50px 0;
+  }
+  .banner h1 {
+    font-size: 28px;
+  }
+  .banner .el-col,
   .about-us .el-col,
   .services .el-col,
   .solutions .el-col,
   .success-cases .el-col,
   .news .el-col,
   .contact-us .el-col {
-    width: 100%;
+    width: 100% !important;
+    margin-bottom: 20px;
   }
-  .contact-info {
-    padding-left: 0;
-    margin-top: 40px;
+  .banner-img,
+  .about-img,
+  .case-img {
+    height: auto;
+    max-width: 100%;
+  }
+  .about-us,
+  .services,
+  .solutions,
+  .success-cases,
+  .news,
+  .contact-us {
+    padding: 40px 15px;
   }
   .footer-content .el-col {
-    width: 50%;
+    width: 50% !important;
     margin-bottom: 20px;
   }
 }
