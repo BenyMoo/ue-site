@@ -19,6 +19,9 @@
             <div class="card-bg-icon">
               <component :is="solution.icon" />
             </div>
+            <div class="card-actions">
+               <el-button link type="primary" @click="$router.push('/solution/' + (index + 1))">查看详情 &rarr;</el-button>
+            </div>
           </div>
         </div>
       </div>

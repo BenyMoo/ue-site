@@ -18,7 +18,7 @@
         <div class="placeholder-content">
           <p>这里是详细内容页面。根据传入的 ID ({{ route.params.id }}) 加载具体数据。</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Detail Image" class="detail-img" />
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop" alt="Detail Image" class="detail-img" />
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
 
@@ -59,6 +59,10 @@ const loadData = () => {
     category.value = '成功案例'
     title.value = '案例详情: ' + id
     description.value = '探索我们如何帮助客户取得成功。'
+  } else if (path.includes('solution')) {
+    category.value = '解决方案'
+    title.value = '解决方案详情: ' + id
+    description.value = '为您量身定制的行业解决方案。'
   } else if (path.includes('news')) {
     category.value = '新闻资讯'
     title.value = '新闻详情: ' + id
@@ -69,7 +73,9 @@ const loadData = () => {
 }
 
 const handleContact = () => {
-  router.push('/#contactUs')
+  const subject = `项目咨询 - ${title.value}`
+  const body = `您好，我对${title.value}感兴趣，想了解更多详情。`
+  window.location.href = `mailto:benymast@outlook.com?subject=${subject}&body=${body}`
 }
 
 onMounted(loadData)

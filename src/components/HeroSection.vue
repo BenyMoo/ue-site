@@ -15,10 +15,10 @@
           为企业提供定制化数字化解决方案，助力业务增长与创新
         </p>
         <div class="hero-actions">
-          <el-button type="primary" size="large" class="cta-btn primary-cta">
+          <el-button type="primary" size="large" class="cta-btn primary-cta" @click="handleEmail">
             立即咨询
           </el-button>
-          <el-button size="large" class="cta-btn secondary-cta">
+          <el-button size="large" class="cta-btn secondary-cta" @click="scrollToCases">
             查看案例
           </el-button>
         </div>
@@ -27,7 +27,7 @@
       <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s">
         <div class="glass-card">
           <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
             alt="Tech Visualization"
             class="hero-img"
           />
@@ -47,6 +47,28 @@
 
 <script setup lang="ts">
 import { DataLine, Monitor } from '@element-plus/icons-vue'
+
+const handleEmail = () => {
+  const subject = `项目咨询`
+  const body = `您好，我想咨询关于...`
+  window.location.href = `mailto:benymast@outlook.com?subject=${subject}&body=${body}`
+}
+
+const scrollToCases = () => {
+  const element = document.getElementById('successCases')
+  if (element) {
+    const offset = 80
+    const bodyRect = document.body.getBoundingClientRect().top
+    const elementRect = element.getBoundingClientRect().top
+    const elementPosition = elementRect - bodyRect
+    const offsetPosition = elementPosition - offset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
 </script>
 
 <style scoped>
