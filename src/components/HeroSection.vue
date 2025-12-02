@@ -4,16 +4,14 @@
       <div class="glow glow-1"></div>
       <div class="glow glow-2"></div>
     </div>
-    
+
     <div class="container hero-content">
       <div class="hero-text animate-fade-in">
         <h1 class="hero-title">
           我们是专业的<br />
           <span class="text-gradient">互联网服务与程序开发</span>
         </h1>
-        <p class="hero-subtitle">
-          为企业提供定制化数字化解决方案，助力业务增长与创新
-        </p>
+        <p class="hero-subtitle">为企业提供定制化数字化解决方案，助力业务增长与创新</p>
         <div class="hero-actions">
           <el-button type="primary" size="large" class="cta-btn primary-cta" @click="handleEmail">
             立即咨询
@@ -23,11 +21,11 @@
           </el-button>
         </div>
       </div>
-      
+
       <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s">
         <div class="glass-card">
           <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+            src="https://cdn.pixabay.com/photo/2017/08/10/08/47/laptop-2620118_1280.jpg"
             alt="Tech Visualization"
             class="hero-img"
           />
@@ -49,8 +47,8 @@
 import { DataLine, Monitor } from '@element-plus/icons-vue'
 
 const handleEmail = () => {
-  const subject = `项目咨询`
-  const body = `您好，我想咨询关于...`
+  const subject = `项目支持`
+  const body = `您好，我想咨询关于：`
   window.location.href = `mailto:benymast@outlook.com?subject=${subject}&body=${body}`
 }
 
@@ -65,7 +63,7 @@ const scrollToCases = () => {
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
 }
@@ -223,8 +221,13 @@ const scrollToCases = () => {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @media (max-width: 992px) {
@@ -249,7 +252,7 @@ const scrollToCases = () => {
   .badge-1 {
     left: 0;
   }
-  
+
   .badge-2 {
     right: 0;
   }

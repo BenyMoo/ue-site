@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar" :class="{ 'scrolled': isScrolled }">
     <div class="container navbar-content">
-      <div class="logo">
+      <div class="logo" @click="handleLogoClick" style="cursor: pointer;">
         <span class="logo-text">易悦</span>
         <span class="logo-dot">.</span>
       </div>
@@ -10,7 +10,7 @@
         <a v-for="item in menuItems" 
            :key="item.index" 
            href="#" 
-           @click.prevent="handleScroll(item.target)"
+           @click.prevent="handleScroll(item.target, item.route)"
            class="menu-item">
           {{ item.label }}
         </a>
@@ -37,12 +37,12 @@
       append-to-body
     >
       <div class="mobile-menu-content">
-        <div class="mobile-logo">易悦</div>
+        <div class="mobile-logo" @click="handleLogoClick" style="cursor: pointer;">易悦</div>
         <div class="mobile-links">
           <a v-for="item in menuItems" 
              :key="item.index" 
              href="#" 
-             @click.prevent="handleMobileClick(item.target)"
+             @click.prevent="handleMobileClick(item.target, item.route)"
              class="mobile-link">
             {{ item.label }}
           </a>
@@ -57,19 +57,43 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isScrolled = ref(false)
 const drawerVisible = ref(false)
+const router = useRouter()
 
 const menuItems = [
   { index: '1', label: '关于我们', target: 'aboutUs' },
   { index: '2', label: '产品服务', target: 'services' },
-  { index: '3', label: '解决方案', target: 'solutions' },
-  { index: '4', label: '成功案例', target: 'successCases' },
-  { index: '5', label: '新闻资讯', target: 'news' },
+  { index: '3', label: '解决方案', target: 'solutions', route: '/solutions' },
+  { index: '4', label: '成功案例', target: 'successCases', route: '/cases' },
+  { index: '5', label: '新闻资讯', target: 'news', route: '/news' },
 ]
 
-const handleScroll = (targetId: string) => {
+const handleScroll = (targetId: string, route?: string) => {
+  // 如果有路由配置，优先跳转路由
+  if (route) {
+    router.push(route)
+    return
+  }
+  
+  // 检查当前是否在首页
+  if (router.currentRoute.value.path !== '/') {
+    // 如果不在首页，先跳转到首页，然后滚动到指定位置
+    router.push('/').then(() => {
+      // 等待DOM更新完成
+      setTimeout(() => {
+        scrollToElement(targetId)
+      }, 100)
+    })
+  } else {
+    // 已经在首页，直接滚动
+    scrollToElement(targetId)
+  }
+}
+
+const scrollToElement = (targetId: string) => {
   const element = document.getElementById(targetId)
   if (element) {
     const offset = 80 // Header height
@@ -85,11 +109,16 @@ const handleScroll = (targetId: string) => {
   }
 }
 
-const handleMobileClick = (targetId: string) => {
+const handleMobileClick = (targetId: string, route?: string) => {
   drawerVisible.value = false
   setTimeout(() => {
-    handleScroll(targetId)
+    handleScroll(targetId, route)
   }, 300)
+}
+
+// 添加Logo点击返回首页的功能
+const handleLogoClick = () => {
+  router.push('/')
 }
 
 const checkScroll = () => {

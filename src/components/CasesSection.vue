@@ -11,7 +11,9 @@
           <div class="case-img-wrapper">
             <img :src="item.image" :alt="item.title" class="case-img" />
             <div class="case-overlay">
-              <el-button type="primary" round @click="$router.push('/case/' + (index + 1))">查看详情</el-button>
+              <el-button type="primary" round @click="$router.push('/case/' + (index + 1))"
+                >查看详情</el-button
+              >
             </div>
           </div>
           <div class="case-content">
@@ -21,10 +23,10 @@
           </div>
         </div>
       </div>
-      
-      <div class="text-center mt-60">
-        <el-button size="large" class="outline-btn">查看更多案例</el-button>
-      </div>
+
+      <!-- <div class="text-center mt-60">
+        <el-button size="large" class="outline-btn" @click="$router.push('/cases')">查看更多案例</el-button>
+      </div> -->
     </div>
   </section>
 </template>
@@ -35,20 +37,20 @@ const cases = [
     category: '电商平台',
     title: '某知名零售品牌全渠道电商平台',
     description: '为该品牌构建了线上线下一体化的电商平台，实现销售额同比增长150%',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop'
+    image: 'https://cdn.pixabay.com/photo/2020/08/20/16/33/packet-5503969_1280.jpg',
   },
   {
     category: '企业管理系统',
     title: '大型制造企业ERP系统升级',
     description: '重构企业资源规划系统，提升运营效率30%，降低管理成本20%',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'
+    image: 'https://cdn.pixabay.com/photo/2014/09/21/19/51/overhead-conveyor-455464_1280.jpg',
   },
   {
     category: '移动应用',
     title: '金融服务移动应用开发',
     description: '开发安全便捷的移动端金融服务应用，用户活跃度提升200%',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop'
-  }
+    image: 'https://cdn.pixabay.com/photo/2014/07/06/13/55/calculator-385506_1280.jpg',
+  },
 ]
 </script>
 

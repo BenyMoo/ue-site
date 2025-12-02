@@ -15,13 +15,17 @@
           <div class="news-content">
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-            <router-link :to="'/news/' + (index + 1)" class="read-more">阅读全文 &rarr;</router-link>
+            <router-link :to="'/news/' + (index + 1)" class="read-more"
+              >阅读全文 &rarr;</router-link
+            >
           </div>
         </div>
       </div>
 
       <div class="text-center mt-60">
-        <el-button size="large" class="outline-btn">查看所有新闻</el-button>
+        <el-button size="large" class="outline-btn" @click="$router.push('/news')"
+          >查看所有新闻</el-button
+        >
       </div>
     </div>
   </section>
@@ -33,20 +37,20 @@ const news = [
     day: '15',
     month: '10月',
     title: '易悦荣获年度最佳技术创新奖',
-    description: '在近日举办的中国互联网技术大会上，易悦凭借在人工智能领域的突破性创新荣获此殊荣'
+    description: '在近日举办的互联网技术大会上，易悦凭借在人工智能领域的突破性创新荣获此殊荣',
   },
   {
     day: '28',
     month: '09月',
     title: '易悦与知名企业达成战略合作',
-    description: '易悦与国内某知名零售集团签署长期技术合作协议，共同推进数字化转型项目'
+    description: '易悦与国内某零售集团签署长期技术合作协议，共同推进数字化转型项目',
   },
   {
     day: '12',
     month: '09月',
     title: '易悦发布新一代低代码开发平台',
-    description: '全新低代码平台V3.0正式上线，大幅降低企业应用开发门槛，提升开发效率50%以上'
-  }
+    description: '全新低代码平台V1.0正式上线，大幅降低企业应用开发门槛，提升开发效率50%以上',
+  },
 ]
 </script>
 

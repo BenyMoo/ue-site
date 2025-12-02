@@ -5,7 +5,7 @@
         <div class="about-visual animate-on-scroll">
           <div class="image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+              src="https://cdn.pixabay.com/photo/2016/07/14/08/25/office-1516329_1280.jpg"
               alt="Office"
               class="about-img"
             />
@@ -15,13 +15,13 @@
             </div>
           </div>
         </div>
-        
+
         <div class="about-content animate-on-scroll">
           <h2 class="section-title">关于易悦</h2>
           <p class="section-desc">
             易悦专注于互联网服务和程序开发领域，拥有一支经验丰富的技术团队。我们致力于为客户提供高质量的软件开发、网站建设以及数字化转型服务，帮助企业实现业务目标。
           </p>
-          
+
           <div class="stats-grid">
             <div class="stat-item">
               <div class="stat-number text-gradient">2022</div>

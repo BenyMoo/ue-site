@@ -20,11 +20,17 @@
               <component :is="solution.icon" />
             </div>
             <div class="card-actions">
-               <el-button link type="primary" @click="$router.push('/solution/' + (index + 1))">查看详情 &rarr;</el-button>
+              <el-button link type="primary" @click="$router.push('/solution/' + (index + 1))"
+                >查看详情 &rarr;</el-button
+              >
             </div>
           </div>
         </div>
       </div>
+
+      <!-- <div class="text-center mt-60">
+        <el-button size="large" class="outline-btn" @click="$router.push('/solutions')">查看更多解决方案</el-button>
+      </div> -->
     </div>
   </section>
 </template>
@@ -36,18 +42,18 @@ const solutions = [
   {
     title: '电商解决方案',
     items: ['多渠道销售平台整合', '智能库存管理系统', '精准营销数据分析'],
-    icon: ShoppingCart
+    icon: ShoppingCart,
   },
   {
     title: '教育行业解决方案',
     items: ['在线学习平台搭建', '教学资源管理系统', '学生行为数据分析'],
-    icon: School
+    icon: School,
   },
   {
     title: '金融行业解决方案',
     items: ['风险控制系统', '客户关系管理平台', '合规数据报告系统'],
-    icon: Money
-  }
+    icon: Money,
+  },
 ]
 </script>
 
