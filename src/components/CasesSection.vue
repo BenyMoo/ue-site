@@ -11,7 +11,7 @@
           <div class="case-img-wrapper">
             <img :src="item.image" :alt="item.title" class="case-img" />
             <div class="case-overlay">
-              <el-button type="primary" round>查看详情</el-button>
+              <el-button type="primary" round @click="$router.push('/case/' + (index + 1))">查看详情</el-button>
             </div>
           </div>
           <div class="case-content">
@@ -35,19 +35,19 @@ const cases = [
     category: '电商平台',
     title: '某知名零售品牌全渠道电商平台',
     description: '为该品牌构建了线上线下一体化的电商平台，实现销售额同比增长150%',
-    image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop'
   },
   {
     category: '企业管理系统',
     title: '大型制造企业ERP系统升级',
     description: '重构企业资源规划系统，提升运营效率30%，降低管理成本20%',
-    image: 'https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=2070&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1504384308090-c54be3855833?q=80&w=1974&auto=format&fit=crop'
   },
   {
     category: '移动应用',
     title: '金融服务移动应用开发',
     description: '开发安全便捷的移动端金融服务应用，用户活跃度提升200%',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop'
   }
 ]
 </script>

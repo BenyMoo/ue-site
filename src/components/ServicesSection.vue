@@ -15,9 +15,9 @@
           </div>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
-          <a href="#" class="learn-more">
+          <router-link :to="'/service/' + (index + 1)" class="learn-more">
             了解更多 <el-icon><ArrowRight /></el-icon>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

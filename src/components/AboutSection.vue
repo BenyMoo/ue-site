@@ -5,12 +5,12 @@
         <div class="about-visual animate-on-scroll">
           <div class="image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
               alt="Team"
               class="about-img"
             />
             <div class="experience-badge">
-              <span class="years">10+</span>
+              <span class="years">3+</span>
               <span class="text">Years Experience</span>
             </div>
           </div>
@@ -28,7 +28,7 @@
               <div class="stat-label">成立年份</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number text-gradient">100+</div>
+              <div class="stat-number text-gradient">30+</div>
               <div class="stat-label">服务企业</div>
             </div>
             <div class="stat-item">

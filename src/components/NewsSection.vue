@@ -15,7 +15,7 @@
           <div class="news-content">
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-            <a href="#" class="read-more">阅读全文 &rarr;</a>
+            <router-link :to="'/news/' + (index + 1)" class="read-more">阅读全文 &rarr;</router-link>
           </div>
         </div>
       </div>

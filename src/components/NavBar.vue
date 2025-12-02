@@ -33,7 +33,8 @@
       direction="rtl"
       size="70%"
       :with-header="false"
-      custom-class="mobile-drawer"
+      class="mobile-drawer"
+      append-to-body
     >
       <div class="mobile-menu-content">
         <div class="mobile-logo">易悦</div>
@@ -61,10 +62,10 @@ const isScrolled = ref(false)
 const drawerVisible = ref(false)
 
 const menuItems = [
-  { index: '1', label: '产品服务', target: 'services' },
-  { index: '2', label: '解决方案', target: 'solutions' },
-  { index: '3', label: '成功案例', target: 'successCases' },
-  { index: '4', label: '关于我们', target: 'aboutUs' },
+  { index: '1', label: '关于我们', target: 'aboutUs' },
+  { index: '2', label: '产品服务', target: 'services' },
+  { index: '3', label: '解决方案', target: 'solutions' },
+  { index: '4', label: '成功案例', target: 'successCases' },
   { index: '5', label: '新闻资讯', target: 'news' },
 ]
 
@@ -256,5 +257,15 @@ onUnmounted(() => {
   .hidden-md-and-up {
     display: none !important;
   }
+}
+</style>
+
+<style>
+.mobile-drawer .el-drawer__body {
+  padding: 0 !important;
+  background-color: var(--color-bg-primary);
+}
+.mobile-drawer .el-drawer__header {
+  display: none;
 }
 </style>

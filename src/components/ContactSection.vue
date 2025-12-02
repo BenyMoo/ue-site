@@ -3,81 +3,45 @@
     <div class="container">
       <div class="contact-wrapper-glow">
         <div class="contact-wrapper glass-panel">
-          <div class="contact-grid">
-            <div class="contact-info-col">
-              <h2 class="section-title">联系我们</h2>
-              <p class="section-desc">如有任何合作意向或技术咨询，请随时与我们联系</p>
-              
-              <div class="info-list">
-                <div class="info-item">
-                  <div class="icon-box"><el-icon><Location /></el-icon></div>
-                  <div>
-                    <h4>公司地址</h4>
-                    <p>上海市浦东新区陆家嘴金融中心环路232号</p>
-                  </div>
+          <div class="contact-content text-center">
+            <h2 class="section-title">联系我们</h2>
+            <p class="section-desc">如有任何合作意向或技术咨询，请随时与我们联系</p>
+            
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="icon-box"><el-icon><Location /></el-icon></div>
+                <div>
+                  <h4>公司地址</h4>
+                  <p>上海市浦东新区陆家嘴金融中心环路232号</p>
                 </div>
-                <div class="info-item">
-                  <div class="icon-box"><el-icon><ChatDotRound /></el-icon></div>
-                  <div>
-                    <h4>微信公众号</h4>
-                    <p>易悦网络</p>
-                  </div>
+              </div>
+              <div class="info-item">
+                <div class="icon-box"><el-icon><ChatDotRound /></el-icon></div>
+                <div>
+                  <h4>微信公众号</h4>
+                  <p>易悦网络</p>
                 </div>
-                <div class="info-item">
-                  <div class="icon-box"><el-icon><Message /></el-icon></div>
-                  <div>
-                    <h4>商务合作</h4>
-                    <p>benymast@outlook.com</p>
-                  </div>
+              </div>
+              <div class="info-item">
+                <div class="icon-box"><el-icon><Message /></el-icon></div>
+                <div>
+                  <h4>商务合作</h4>
+                  <p>benymast@outlook.com</p>
                 </div>
-                <div class="info-item">
-                  <div class="icon-box"><el-icon><Clock /></el-icon></div>
-                  <div>
-                    <h4>联系时间</h4>
-                    <p>周一至周五 9:00-18:00</p>
-                  </div>
+              </div>
+              <div class="info-item">
+                <div class="icon-box"><el-icon><Clock /></el-icon></div>
+                <div>
+                  <h4>联系时间</h4>
+                  <p>周一至周五 9:00-18:00</p>
                 </div>
               </div>
             </div>
 
-            <div class="contact-form-col">
-              <el-form label-position="top" class="modern-form">
-                <el-row :gutter="20">
-                  <el-col :span="12" :xs="24">
-                    <el-form-item label="姓名 *">
-                      <el-input v-model="form.name" placeholder="请输入您的姓名" />
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="12" :xs="24">
-                    <el-form-item label="邮箱 *">
-                      <el-input v-model="form.email" placeholder="请输入您的邮箱" />
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="12" :xs="24">
-                    <el-form-item label="电话">
-                      <el-input v-model="form.phone" placeholder="请输入您的电话" />
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="12" :xs="24">
-                    <el-form-item label="公司名称">
-                      <el-input v-model="form.company" placeholder="请输入公司名称" />
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="24">
-                    <el-form-item label="项目需求 *">
-                      <el-input
-                        v-model="form.message"
-                        type="textarea"
-                        :rows="4"
-                        placeholder="请详细描述您的项目需求"
-                      />
-                    </el-form-item>
-                  </el-col>
-                </el-row>
-                <el-button type="primary" size="large" class="submit-btn" @click="handleEmail">
-                  发送邮件咨询 <el-icon class="el-icon--right"><Promotion /></el-icon>
-                </el-button>
-              </el-form>
+            <div class="action-area">
+              <el-button type="primary" size="large" class="submit-btn" @click="handleEmail">
+                发送邮件咨询 <el-icon class="el-icon--right"><Promotion /></el-icon>
+              </el-button>
             </div>
           </div>
         </div>
@@ -87,20 +51,11 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
 import { Location, ChatDotRound, Message, Clock, Promotion } from '@element-plus/icons-vue'
 
-const form = reactive({
-  name: '',
-  email: '',
-  phone: '',
-  company: '',
-  message: ''
-})
-
 const handleEmail = () => {
-  const subject = `项目咨询 - ${form.company || form.name}`
-  const body = `姓名: ${form.name}%0D%0A邮箱: ${form.email}%0D%0A电话: ${form.phone}%0D%0A公司: ${form.company}%0D%0A%0D%0A需求描述:%0D%0A${form.message}`
+  const subject = `项目咨询`
+  const body = `您好，我想咨询关于...`
   
   window.location.href = `mailto:benymast@outlook.com?subject=${subject}&body=${body}`
 }
@@ -140,6 +95,8 @@ const handleEmail = () => {
   background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-primary));
   background-size: 200% 200%;
   animation: gradientBorder 6s ease infinite;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 @keyframes gradientBorder {
@@ -151,15 +108,15 @@ const handleEmail = () => {
 .contact-wrapper {
   padding: 60px;
   border-radius: 32px;
-  background: rgba(15, 23, 42, 0.8); /* Darker background for contrast */
+  background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(20px);
-  border: none; /* Border handled by wrapper */
+  border: none;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 60px;
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-title {
@@ -167,6 +124,7 @@ const handleEmail = () => {
   font-weight: 800;
   margin-bottom: 16px;
   background: linear-gradient(to right, #fff, #94a3b8);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -174,23 +132,33 @@ const handleEmail = () => {
 .section-desc {
   color: var(--color-text-secondary);
   font-size: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 60px;
 }
 
 .info-item {
   display: flex;
   gap: 20px;
-  transition: transform 0.3s ease;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
 }
 
 .info-item:hover {
-  transform: translateX(10px);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .icon-box {
@@ -205,6 +173,7 @@ const handleEmail = () => {
   font-size: 24px;
   transition: all 0.3s ease;
   border: 1px solid rgba(59, 130, 246, 0.2);
+  flex-shrink: 0;
 }
 
 .info-item:hover .icon-box {
@@ -218,50 +187,26 @@ const handleEmail = () => {
   font-weight: 600;
   color: var(--color-text-primary);
   margin-bottom: 4px;
+  text-align: left;
 }
 
 .info-item p {
   color: var(--color-text-secondary);
   font-size: 14px;
+  text-align: left;
 }
 
-/* Form Styles */
-.modern-form :deep(.el-input__wrapper),
-.modern-form :deep(.el-textarea__inner) {
-  background-color: rgba(255, 255, 255, 0.03);
-  box-shadow: none;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--color-text-primary);
-  padding: 12px 16px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.modern-form :deep(.el-input__wrapper:hover),
-.modern-form :deep(.el-textarea__inner:hover) {
-  border-color: var(--color-primary);
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.modern-form :deep(.el-input__wrapper.is-focus),
-.modern-form :deep(.el-textarea__inner:focus) {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.modern-form :deep(.el-form-item__label) {
-  color: var(--color-text-secondary);
-  font-weight: 500;
+.action-area {
+  width: 100%;
+  max-width: 400px;
 }
 
 .submit-btn {
   width: 100%;
-  margin-top: 20px;
-  height: 56px;
-  font-size: 18px;
+  height: 64px;
+  font-size: 20px;
   font-weight: 600;
-  border-radius: 28px;
+  border-radius: 32px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   border: none;
   transition: all 0.3s ease;
@@ -289,14 +234,18 @@ const handleEmail = () => {
   left: 100%;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .contact-wrapper {
-    padding: 30px;
+    padding: 40px 20px;
   }
   
-  .contact-grid {
+  .info-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px;
+  }
+  
+  .info-item {
+    padding: 20px;
   }
 }
 </style>

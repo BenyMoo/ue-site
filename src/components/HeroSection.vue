@@ -27,7 +27,7 @@
       <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s">
         <div class="glass-card">
           <img
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
             alt="Tech Visualization"
             class="hero-img"
           />
