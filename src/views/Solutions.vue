@@ -1,7 +1,7 @@
 <template>
   <div class="solutions-page">
     <NavBar />
-    
+
     <div class="page-header">
       <div class="container">
         <h1 class="page-title">行业解决方案</h1>
@@ -44,44 +44,45 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue'
 import AppFooter from '@/components/AppFooter.vue'
-import { Check, ShoppingCart, School, Money, Health, Truck, Bank, Cloud } from '@element-plus/icons-vue'
+import { Check, ShoppingCart, School, Money, Van, Coin, Cloudy } from '@element-plus/icons-vue'
+import { FirstAidKit } from '@element-plus/icons-vue'
 
 const solutions = [
   {
     title: '电商解决方案',
     items: ['多渠道销售平台整合', '智能库存管理系统', '精准营销数据分析', '会员管理系统'],
-    icon: ShoppingCart
+    icon: ShoppingCart,
   },
   {
     title: '教育行业解决方案',
     items: ['在线学习平台搭建', '教学资源管理系统', '学生行为数据分析', '智能排课系统'],
-    icon: School
+    icon: School,
   },
   {
     title: '金融行业解决方案',
     items: ['风险控制系统', '客户关系管理平台', '合规数据报告系统', '移动支付解决方案'],
-    icon: Money
+    icon: Money,
   },
   {
     title: '医疗健康解决方案',
     items: ['智慧医院管理系统', '电子病历系统', '远程医疗平台', '医疗大数据分析'],
-    icon: Health
+    icon: FirstAidKit,
   },
   {
     title: '物流运输解决方案',
     items: ['智能调度系统', '实时跟踪平台', '仓储管理系统', '运输成本优化'],
-    icon: Truck
+    icon: Van,
   },
   {
     title: '政务解决方案',
     items: ['政务服务平台', '数据共享交换', '智能审批系统', '公共资源交易'],
-    icon: Bank
+    icon: Coin,
   },
   {
     title: '云计算解决方案',
     items: ['云原生架构设计', '容器化部署', '自动化运维', '云安全服务'],
-    icon: Cloud
-  }
+    icon: Cloudy,
+  },
 ]
 </script>
 
@@ -214,15 +215,15 @@ const solutions = [
   .solutions-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .page-title {
     font-size: 32px;
   }
-  
+
   .page-subtitle {
     font-size: 16px;
   }
-  
+
   .card-content {
     padding: 30px 20px;
   }

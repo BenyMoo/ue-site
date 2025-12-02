@@ -37,7 +37,14 @@
 import NavBar from '@/components/NavBar.vue'
 import AppFooter from '@/components/AppFooter.vue'
 
-const cases = [
+interface CaseItem {
+  category: string
+  title: string
+  description: string
+  image?: string
+}
+
+const cases: CaseItem[] = [
   {
     category: '新零售电商',
     title: '星链购全渠道零售平台',
